@@ -1,0 +1,75 @@
+{
+  "name": "@tervatrix/rtl-ui",
+  "version": "1.0.0",
+  "description": "Framework-free helpers and logical-property CSS for correct Hebrew and Arabic right-to-left interfaces. Fixes reversed phone numbers, flipped time ranges and lines that start with a digit.",
+  "keywords": [
+    "rtl",
+    "bidi",
+    "hebrew",
+    "arabic",
+    "i18n",
+    "l10n",
+    "unicode-bidi",
+    "logical-properties",
+    "css",
+    "react",
+    "direction",
+    "ltr-isolate"
+  ],
+  "license": "MIT",
+  "author": "Tervatrix",
+  "homepage": "https://github.com/mhamedmohammed92-arch/rtl-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhamedmohammed92-arch/rtl-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mhamedmohammed92-arch/rtl-ui/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./react": {
+      "types": "./src/react.d.ts",
+      "default": "./src/react.js"
+    },
+    "./css": "./css/rtl-ui.css",
+    "./rtl-ui.css": "./css/rtl-ui.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "css",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  }
+}

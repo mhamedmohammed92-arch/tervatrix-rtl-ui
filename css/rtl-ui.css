@@ -1,0 +1,293 @@
+/*!
+ * @tervatrix/rtl-ui - logical-property CSS utilities for Hebrew and Arabic.
+ * MIT licensed.
+ *
+ * Every rule below is written with CSS *logical* properties
+ * (inline-start / inline-end) instead of physical ones (left / right).
+ * A logical property follows the writing direction of its element, so one
+ * stylesheet lays out correctly in both `dir="ltr"` and `dir="rtl"` and there
+ * is no mirrored copy to keep in sync.
+ *
+ * Physical equivalents in an LTR context, for reference:
+ *   inline-start -> left      inline-end -> right
+ * and they swap in an RTL context. That swap is the whole point.
+ *
+ * Load it once:
+ *   import '@tervatrix/rtl-ui/css';
+ * or
+ *   <link rel="stylesheet" href="node_modules/@tervatrix/rtl-ui/css/rtl-ui.css">
+ *
+ * Then set the direction on a container - the utilities read it:
+ *   <div dir="rtl" lang="he"> ... </div>
+ */
+
+/* --------------------------------------------------------------------------
+ * 1. Direction containers
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-rtl {
+  direction: rtl;
+  text-align: start;
+}
+
+.rtl-ui-ltr {
+  direction: ltr;
+  text-align: start;
+}
+
+/* Honour the dir attribute wherever it appears, including nested islands. */
+[dir='rtl'] {
+  direction: rtl;
+}
+
+[dir='ltr'] {
+  direction: ltr;
+}
+
+/* --------------------------------------------------------------------------
+ * 2. Isolated islands - the CSS half of the LTR-isolate helper
+ *
+ * `unicode-bidi: isolate` does in CSS what U+2066 ... U+2069 does in text:
+ * the element is laid out on its own and cannot reorder the sentence around
+ * it. Use the class when the value sits in its own element; use the JS helper
+ * `isolate()` when it is glued inside a longer string.
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-isolate {
+  unicode-bidi: isolate;
+}
+
+/* A number, phone number, order id, price or time range inside RTL prose. */
+.rtl-ui-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+}
+
+/* A URL, an e-mail address or a file path inside RTL prose. */
+.rtl-ui-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: start;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* User-supplied text of unknown script - a name, a message, a search term.
+ * `plaintext` lets each such value pick its own direction from its first
+ * strong character, which is exactly what a mixed-language list needs. */
+.rtl-ui-auto {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+/* --------------------------------------------------------------------------
+ * 3. Text alignment
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-text-start {
+  text-align: start;
+}
+
+.rtl-ui-text-end {
+  text-align: end;
+}
+
+.rtl-ui-text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+ * 4. Spacing scale, on the inline axis
+ *
+ * The scale is 0, 1 = 4px, 2 = 8px, 3 = 12px, 4 = 16px, 5 = 24px, 6 = 32px.
+ * Override --rtl-ui-space-* on :root to fit your own scale.
+ * ----------------------------------------------------------------------- */
+
+:root {
+  --rtl-ui-space-0: 0;
+  --rtl-ui-space-1: 0.25rem;
+  --rtl-ui-space-2: 0.5rem;
+  --rtl-ui-space-3: 0.75rem;
+  --rtl-ui-space-4: 1rem;
+  --rtl-ui-space-5: 1.5rem;
+  --rtl-ui-space-6: 2rem;
+}
+
+.rtl-ui-ms-0 { margin-inline-start: var(--rtl-ui-space-0); }
+.rtl-ui-ms-1 { margin-inline-start: var(--rtl-ui-space-1); }
+.rtl-ui-ms-2 { margin-inline-start: var(--rtl-ui-space-2); }
+.rtl-ui-ms-3 { margin-inline-start: var(--rtl-ui-space-3); }
+.rtl-ui-ms-4 { margin-inline-start: var(--rtl-ui-space-4); }
+.rtl-ui-ms-5 { margin-inline-start: var(--rtl-ui-space-5); }
+.rtl-ui-ms-6 { margin-inline-start: var(--rtl-ui-space-6); }
+.rtl-ui-ms-auto { margin-inline-start: auto; }
+
+.rtl-ui-me-0 { margin-inline-end: var(--rtl-ui-space-0); }
+.rtl-ui-me-1 { margin-inline-end: var(--rtl-ui-space-1); }
+.rtl-ui-me-2 { margin-inline-end: var(--rtl-ui-space-2); }
+.rtl-ui-me-3 { margin-inline-end: var(--rtl-ui-space-3); }
+.rtl-ui-me-4 { margin-inline-end: var(--rtl-ui-space-4); }
+.rtl-ui-me-5 { margin-inline-end: var(--rtl-ui-space-5); }
+.rtl-ui-me-6 { margin-inline-end: var(--rtl-ui-space-6); }
+.rtl-ui-me-auto { margin-inline-end: auto; }
+
+.rtl-ui-ps-0 { padding-inline-start: var(--rtl-ui-space-0); }
+.rtl-ui-ps-1 { padding-inline-start: var(--rtl-ui-space-1); }
+.rtl-ui-ps-2 { padding-inline-start: var(--rtl-ui-space-2); }
+.rtl-ui-ps-3 { padding-inline-start: var(--rtl-ui-space-3); }
+.rtl-ui-ps-4 { padding-inline-start: var(--rtl-ui-space-4); }
+.rtl-ui-ps-5 { padding-inline-start: var(--rtl-ui-space-5); }
+.rtl-ui-ps-6 { padding-inline-start: var(--rtl-ui-space-6); }
+
+.rtl-ui-pe-0 { padding-inline-end: var(--rtl-ui-space-0); }
+.rtl-ui-pe-1 { padding-inline-end: var(--rtl-ui-space-1); }
+.rtl-ui-pe-2 { padding-inline-end: var(--rtl-ui-space-2); }
+.rtl-ui-pe-3 { padding-inline-end: var(--rtl-ui-space-3); }
+.rtl-ui-pe-4 { padding-inline-end: var(--rtl-ui-space-4); }
+.rtl-ui-pe-5 { padding-inline-end: var(--rtl-ui-space-5); }
+.rtl-ui-pe-6 { padding-inline-end: var(--rtl-ui-space-6); }
+
+/* --------------------------------------------------------------------------
+ * 5. Borders and radii on the inline axis
+ * ----------------------------------------------------------------------- */
+
+:root {
+  --rtl-ui-border: 1px solid currentColor;
+  --rtl-ui-radius: 0.5rem;
+}
+
+.rtl-ui-border-s { border-inline-start: var(--rtl-ui-border); }
+.rtl-ui-border-e { border-inline-end: var(--rtl-ui-border); }
+
+.rtl-ui-round-s {
+  border-start-start-radius: var(--rtl-ui-radius);
+  border-end-start-radius: var(--rtl-ui-radius);
+}
+
+.rtl-ui-round-e {
+  border-start-end-radius: var(--rtl-ui-radius);
+  border-end-end-radius: var(--rtl-ui-radius);
+}
+
+/* --------------------------------------------------------------------------
+ * 6. Positioning on the inline axis
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-inset-s-0 { inset-inline-start: 0; }
+.rtl-ui-inset-e-0 { inset-inline-end: 0; }
+.rtl-ui-inset-x-0 { inset-inline: 0; }
+
+.rtl-ui-float-s { float: inline-start; }
+.rtl-ui-float-e { float: inline-end; }
+
+/* --------------------------------------------------------------------------
+ * 7. Flex and grid alignment
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.rtl-ui-justify-start { justify-content: flex-start; }
+.rtl-ui-justify-end { justify-content: flex-end; }
+.rtl-ui-items-start { align-items: flex-start; }
+.rtl-ui-items-end { align-items: flex-end; }
+
+/* --------------------------------------------------------------------------
+ * 8. Directional icons
+ *
+ * An arrow, a chevron, a "back" caret and a send icon all point the wrong way
+ * in RTL. Mirror the glyph, never the whole component.
+ * A clock, a logo, a checkmark and a media play button must NOT be mirrored -
+ * that is why this is opt-in per element rather than a blanket rule.
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-flip-icon {
+  display: inline-block;
+}
+
+[dir='rtl'] .rtl-ui-flip-icon,
+.rtl-ui-rtl .rtl-ui-flip-icon {
+  transform: scaleX(-1);
+}
+
+/* --------------------------------------------------------------------------
+ * 9. Form controls
+ *
+ * A telephone, e-mail or URL input must stay left-to-right even on an RTL
+ * page: the user types `+972...` and the plus sign must lead. The field is
+ * still aligned to the inline start so it lines up with the rest of the form.
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-input-ltr,
+input[type='tel'].rtl-ui-input,
+input[type='email'].rtl-ui-input,
+input[type='url'].rtl-ui-input,
+input[type='number'].rtl-ui-input {
+  direction: ltr;
+  text-align: start;
+  unicode-bidi: isolate;
+}
+
+[dir='rtl'] .rtl-ui-input-ltr,
+[dir='rtl'] input[type='tel'].rtl-ui-input,
+[dir='rtl'] input[type='email'].rtl-ui-input,
+[dir='rtl'] input[type='url'].rtl-ui-input,
+[dir='rtl'] input[type='number'].rtl-ui-input {
+  text-align: end;
+}
+
+/* --------------------------------------------------------------------------
+ * 10. Tables
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-table th,
+.rtl-ui-table td {
+  text-align: start;
+}
+
+.rtl-ui-table .rtl-ui-num-cell {
+  text-align: end;
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+ * 11. Typography
+ *
+ * Hebrew and Arabic need more line height than Latin at the same size:
+ * Arabic has tall ascenders and deep descenders, Hebrew has none of the
+ * x-height cues Latin readers use. 1.7 is the value that stopped the
+ * complaints in production.
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-prose {
+  line-height: 1.7;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+/* Hebrew and Arabic have no letter case and no small caps, and tracking makes
+ * connected Arabic script fall apart. Kill both wherever they are inherited. */
+[dir='rtl'] .rtl-ui-prose,
+.rtl-ui-rtl .rtl-ui-prose {
+  letter-spacing: normal;
+  text-transform: none;
+  font-variant-caps: normal;
+}
+
+/* --------------------------------------------------------------------------
+ * 12. Scroll shadow / overflow guard
+ *
+ * A wide table or a code block must scroll inside its own box. Without this
+ * the page body scrolls horizontally, and in RTL it scrolls to a negative
+ * offset that some browsers render as a blank column.
+ * ----------------------------------------------------------------------- */
+
+.rtl-ui-scroll-x {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
