@@ -1,5 +1,5 @@
 /*!
- * @tervatrix/rtl-ui - logical-property CSS utilities for Hebrew and Arabic.
+ * tervatrix-rtl-ui - logical-property CSS utilities for Hebrew and Arabic.
  * MIT licensed.
  *
  * Every rule below is written with CSS *logical* properties
@@ -13,9 +13,9 @@
  * and they swap in an RTL context. That swap is the whole point.
  *
  * Load it once:
- *   import '@tervatrix/rtl-ui/css';
+ *   import 'tervatrix-rtl-ui/css';
  * or
- *   <link rel="stylesheet" href="node_modules/@tervatrix/rtl-ui/css/rtl-ui.css">
+ *   <link rel="stylesheet" href="node_modules/tervatrix-rtl-ui/css/rtl-ui.css">
  *
  * Then set the direction on a container - the utilities read it:
  *   <div dir="rtl" lang="he"> ... </div>

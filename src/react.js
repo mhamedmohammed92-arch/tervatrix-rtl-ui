@@ -1,11 +1,11 @@
 /**
- * @tervatrix/rtl-ui/react - the optional React wrapper.
+ * tervatrix-rtl-ui/react - the optional React wrapper.
  *
  * This entry point is the ONLY file in the package that touches React.
- * Importing `@tervatrix/rtl-ui` never loads it, so the package stays
+ * Importing `tervatrix-rtl-ui` never loads it, so the package stays
  * framework-free for everyone else. React is an optional peer dependency.
  *
- *   import { RtlProvider, Rtl, Ltr, RtlText, useDirection } from '@tervatrix/rtl-ui/react';
+ *   import { RtlProvider, Rtl, Ltr, RtlText, useDirection } from 'tervatrix-rtl-ui/react';
  */
 
 import { createContext, createElement, useContext, useMemo } from 'react';

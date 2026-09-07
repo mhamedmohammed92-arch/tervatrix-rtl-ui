@@ -1,5 +1,5 @@
 {
-  "name": "@tervatrix/rtl-ui",
+  "name": "tervatrix-rtl-ui",
   "version": "1.0.0",
   "description": "Framework-free helpers and logical-property CSS for correct Hebrew and Arabic right-to-left interfaces. Fixes reversed phone numbers, flipped time ranges and lines that start with a digit.",
   "keywords": [
@@ -65,9 +65,6 @@
     "react": {
       "optional": true
     }
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devDependencies": {
     "react": "^18.3.1"

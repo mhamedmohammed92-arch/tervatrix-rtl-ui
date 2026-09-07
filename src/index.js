@@ -1,5 +1,5 @@
 /**
- * @tervatrix/rtl-ui - framework-free helpers for correct Hebrew and Arabic
+ * tervatrix-rtl-ui - framework-free helpers for correct Hebrew and Arabic
  * right-to-left text in a user interface.
  *
  * Two bidi bugs ship in almost every Hebrew or Arabic interface, and both are

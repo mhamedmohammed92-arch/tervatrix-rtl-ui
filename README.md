@@ -1,4 +1,4 @@
-# @tervatrix/rtl-ui
+# tervatrix-rtl-ui
 
 Framework-free helpers and logical-property CSS for Hebrew and Arabic
 interfaces. No dependencies, no build step, no configuration.
@@ -22,7 +22,7 @@ in production. MIT licensed.
 ## Install
 
 ```bash
-npm install @tervatrix/rtl-ui
+npm install tervatrix-rtl-ui
 ```
 
 Node 18.17 or newer. React is optional and only needed for the `/react` entry
@@ -33,7 +33,7 @@ point.
 ## The 30-second version
 
 ```js
-import { prepareRtl } from '@tervatrix/rtl-ui';
+import { prepareRtl } from 'tervatrix-rtl-ui';
 
 const message = 'שעות פתיחה: 09:00-18:00\nלשאלות: +972-4-000-0000';
 
@@ -132,13 +132,13 @@ primary subtags, exported so you can assert on them in your own tests.
 ## The stylesheet
 
 ```js
-import '@tervatrix/rtl-ui/css';
+import 'tervatrix-rtl-ui/css';
 ```
 
 or
 
 ```html
-<link rel="stylesheet" href="node_modules/@tervatrix/rtl-ui/css/rtl-ui.css">
+<link rel="stylesheet" href="node_modules/tervatrix-rtl-ui/css/rtl-ui.css">
 ```
 
 Then set the direction on a container and the utilities follow it:
@@ -185,8 +185,8 @@ The `/react` entry point is the only file in the package that touches React.
 Importing the package root never loads it.
 
 ```jsx
-import { RtlProvider, Rtl, Ltr, RtlText, useDirection } from '@tervatrix/rtl-ui/react';
-import '@tervatrix/rtl-ui/css';
+import { RtlProvider, Rtl, Ltr, RtlText, useDirection } from 'tervatrix-rtl-ui/react';
+import 'tervatrix-rtl-ui/css';
 
 function Card({ order }) {
   const { dir } = useDirection();          // reads the nearest RtlProvider
