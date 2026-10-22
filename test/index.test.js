@@ -124,8 +124,8 @@ test('an e-mail address is wrapped in an LTR isolate', () => {
 });
 
 test('a time range is isolated as ONE run, not two', () => {
-  // The bug this guards: an RTL paragraph reorders "09:00-18:00" into
-  // "18:00-09:00" and shows the closing time first.
+  // The bug this guards: an RTL paragraph reorders "09:00 - 18:00" into
+  // "18:00 - 09:00" and shows the closing time first; every form is one run.
   const out = isolateLtrRuns(`${HEBREW} 09:00-18:00`);
   assert.ok(out.includes(`${LRI}09:00-18:00${PDI}`));
   assert.equal((out.match(new RegExp(LRI, 'g')) || []).length, 1);

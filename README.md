@@ -9,8 +9,8 @@ layout:
 
 | what the user sees | why | the fix in this package |
 |---|---|---|
-| `+972-4-000-0000` renders as `0000-000-4-972+` | the dashes are *neutral* characters and inherit the paragraph's RTL direction | `prepareRtl()` / `<Ltr>` / `.rtl-ui-num` |
-| opening hours `09:00-18:00` render as `18:00-09:00`, closing time first | two number runs with a neutral between them get reordered as a unit | the same - the pattern treats a time range as **one** run |
+| `+972-4-000-0000` renders as `972-4-000-0000+` (the plus jumps to the end), and `+972 4 000 0000` renders as `0000 000 4 972+` | a leading `+` is a *neutral* character and takes the paragraph's RTL direction; spaces split the digits into separate number runs, which RTL lays out right to left (a single hyphen between digits keeps one run) | `prepareRtl()` / `<Ltr>` / `.rtl-ui-num` |
+| opening hours `09:00 - 18:00` or `09:00–18:00` (en dash) render as `18:00 - 09:00`, closing time first | two number runs with a neutral (a space, an en dash) between them are laid out right to left; a bare hyphen `09:00-18:00` happens to survive | the same - the pattern treats a time range as **one** run |
 | a whole Hebrew line flips to left-aligned because it starts with `2026` or `WhatsApp` | the first-strong-character rule guesses the paragraph direction | `prepareRtl()` prefixes an invisible RTL mark |
 | the sidebar, the icons and the padding are on the wrong side | the stylesheet uses `margin-left` / `right:` | `rtl-ui.css`, which contains no physical left/right property at all |
 
